@@ -34,10 +34,10 @@ if __name__ == '__main__':
     # inner: 4000, 250/file, label:1
     # roll:4000, 250/file, label:2
     # outer:4000, 142/file, label:3
-    path_normal = r'D:\BaiduNetdiskDownload\西储大学轴承数据中心网站\Normal Baseline Data'
-    path_inner = r'D:\BaiduNetdiskDownload\西储大学轴承数据中心网站\12k Drive End Bearing Fault Data\内圈故障'
-    path_roll = r'D:\BaiduNetdiskDownload\西储大学轴承数据中心网站\12k Drive End Bearing Fault Data\滚动体故障'
-    path_outer = r'D:\BaiduNetdiskDownload\西储大学轴承数据中心网站\12k Drive End Bearing Fault Data\外圈故障'
+    path_normal = r'raw-data\Normal Baseline Data'
+    path_inner = r'raw-data\12k Drive End Bearing Fault Data\内圈故障'
+    path_roll = r'raw-data\12k Drive End Bearing Fault Data\滚动体故障'
+    path_outer = r'raw-data\12k Drive End Bearing Fault Data\外圈故障'
     x_noraml, y_normal = sample(path_normal, label=0)
     x_inner, y_inner = sample(path_inner, label=1, numbers=250)
     x_roll, y_roll = sample(path_roll, label=2, numbers=250)
@@ -47,6 +47,18 @@ if __name__ == '__main__':
     print(x_roll.shape, y_roll.shape)
     print(x_outer.shape, y_outer.shape)
 
+    os.makedirs(os.path.dirname(r'Samples\x_normal'), exist_ok=True)
+    os.makedirs(os.path.dirname(r'Samples\y_normal'), exist_ok=True)
+
+    os.makedirs(os.path.dirname(r'Samples\x_inner'), exist_ok=True)
+    os.makedirs(os.path.dirname(r'Samples\y_inner'), exist_ok=True)
+
+    os.makedirs(os.path.dirname(r'Samples\x_roll'), exist_ok=True)
+    os.makedirs(os.path.dirname(r'Samples\y_roll'), exist_ok=True)
+    
+    os.makedirs(os.path.dirname(r'Samples\x_outer'), exist_ok=True)
+    os.makedirs(os.path.dirname(r'Samples\y_outer'), exist_ok=True)
+    
     np.savetxt(r'Samples\x_normal', x_noraml)
     np.savetxt(r'Samples\y_normal', y_normal)
 
