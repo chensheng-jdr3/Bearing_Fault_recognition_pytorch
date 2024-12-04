@@ -29,3 +29,19 @@
 将上述残差块堆叠起来，形成深度残差网络，如图所示（批量归一化层并入了前面的卷积层，这里省略）。振动信号先通过一层简单的卷积层，该卷积层有16个3*1的卷积核，步长为1，不改变时序信号的长度；接着依次通过12个残差块，当步长为n（n！=1）时，时序信号的长度则变为原来的1/n；最后再依次通过全局平均池化层和全连接层，得到最终的预测结果。
 
 ![4](https://github.com/littlelittlewhite09/Bearing_Fault_recognition/raw/main/Screenshots/4.png) 
+
+# How to start
+## 1 数据准备
+下载数据，并且解压在raw-data下，文件结构应该是：
+```
+-raw-data
+--Normal Baseline Data
+--12k Drive End Bearing Fault Data
+--12k Drive End Bearing Fault Data
+--12k Drive End Bearing Fault Data
+```
+## 2 采样并划分数据
+运行`sample_and_split.py`
+
+## 3 开始训练网络
+运行`torch_train&test.py`
