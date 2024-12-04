@@ -94,12 +94,12 @@ class ResNet(keras.Model):
 
         return res_blocks
         
-x_train = np.loadtxt(r'/content/drive/My Drive/Data/x_train').reshape(-1, 512, 1).astype(np.float32)
-y_train = np.loadtxt(r'/content/drive/My Drive/Data/y_train').astype(np.int32)
-x_test = np.loadtxt(r'/content/drive/My Drive/Data/x_test').reshape(-1, 512, 1).astype(np.float32)
-y_test = np.loadtxt(r'/content/drive/My Drive/Data/y_test').astype(np.int32)
-train_db = tf.data.Dataset.from_tensor_slices((x_train, y_train)).batch(512)
-test_db = tf.data.Dataset.from_tensor_slices((x_test, y_test)).batch(512)
+x_train = np.loadtxt(r'Data/x_train').reshape(-1, 512, 1).astype(np.float32)
+y_train = np.loadtxt(r'Data/y_train').astype(np.int32)
+x_test = np.loadtxt(r'Data/x_test').reshape(-1, 512, 1).astype(np.float32)
+y_test = np.loadtxt(r'Data/y_test').astype(np.int32)
+train_db = tf.data.Dataset.from_tensor_slices((x_train, y_train)).batch(512)    # 这里是在内存中划分batch
+test_db = tf.data.Dataset.from_tensor_slices((x_test, y_test)).batch(512)   # 这里是在内存中划分batch
 # sample = next(iter(train_db))
 # print(sample)
 
